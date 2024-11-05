@@ -24,7 +24,7 @@ jobs:
         
       - name: Test frontend
         working-directory: ./front
-        run: npm run test:ci
+        run: npm run test
 
       - name: Generate test coverage report
         working-directory: ./front
