@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Build 
+      - name: Install packages 
         working-directory: ./front
         run: npm ci
         
