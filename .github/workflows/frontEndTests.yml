@@ -19,6 +19,7 @@ jobs:
           node-version: '14'
 
       - name: Build 
+        working-directory: ./front
         run: npm ci
         
       - name: Test frontend
