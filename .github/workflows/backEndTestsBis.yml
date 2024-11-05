@@ -30,6 +30,9 @@ jobs:
       - name: Generate JaCoCo test coverage report
         working-directory: ./back
         run: mvn jacoco:report
+
+      - name: ReBuild with Maven
+        run: mvn clean verify
         
       - name: Test Report
         uses: actions/upload-artifact@v3
