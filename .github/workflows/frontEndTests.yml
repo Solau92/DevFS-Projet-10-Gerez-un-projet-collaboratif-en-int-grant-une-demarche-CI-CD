@@ -17,14 +17,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '14'
-    
+
+      - name: Build 
+        run: npm ci
+        
       - name: Test frontend
         working-directory: ./front
-        run: npm run test
+        run: npm test
 
       - name: Generate test coverage report
         working-directory: ./front
-        run: npm run test –coverage
+        run: npm test --coverage
         
       - name: Get Jasmine test coverage report
         uses: actions/upload-artifact@v4
