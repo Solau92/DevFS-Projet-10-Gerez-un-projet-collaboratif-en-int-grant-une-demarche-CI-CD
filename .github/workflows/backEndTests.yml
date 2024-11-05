@@ -23,7 +23,9 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Build and test backend
+        working-directory: ./back
         run: mvn clean test
 
       - name: Generate JaCoCo test coverage report
+        working-directory: ./back
         run: mvn jacoco:report
