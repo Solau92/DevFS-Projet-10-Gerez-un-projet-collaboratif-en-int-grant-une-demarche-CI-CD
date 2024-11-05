@@ -1,0 +1,37 @@
+on:
+  push:
+    branches: actions-tests
+
+jobs:
+
+  build-and-test-frontend:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+          cache: maven
+    
+      - name: Test frontend
+        working-directory: ./front
+        run: npm test
+
+      - name: Generate test coverage report
+        working-directory: ./front
+        run: npm test –coverage
+        
+      - name: Get Jasmine test coverage report
+        uses: actions/upload-artifact@v4
+        if: success() || failure()
+        with:
+          name: Jasmine Report
+          path: ./front/..
+        
