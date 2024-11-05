@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -23,7 +24,7 @@ jobs:
         working-directory: ./back
         run: mvn -B package --file pom.xml
 
-      - name: Build and test backend
+      - name: Test backend
         working-directory: ./back
         run: mvn clean test
 
@@ -31,7 +32,7 @@ jobs:
         working-directory: ./back
         run: mvn jacoco:report
         
-      - name: Test Report
+      - name: Get JaCoCo test coverage report
         uses: actions/upload-artifact@v4
         if: success() || failure()
         with:
