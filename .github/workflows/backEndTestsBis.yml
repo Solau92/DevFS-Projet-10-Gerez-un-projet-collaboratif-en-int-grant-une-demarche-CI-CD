@@ -4,16 +4,10 @@ on:
 
 jobs:
 
-  build-backend:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build with Maven
-        working-directory: back
-        run: mvn -B package --file pom.xml
-
-  test-backend:
+  build-and-test-backend:
   
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,10 +19,22 @@ jobs:
           java-version: '11'
           cache: maven
     
-      - name: test backend
+      - name: Build with Maven
+        working-directory: ./back
+        run: mvn -B package --file pom.xml
+
+      - name: Build and test backend
         working-directory: ./back
         run: mvn clean test
 
       - name: Generate JaCoCo test coverage report
         working-directory: ./back
         run: mvn jacoco:report
+        
+      - name: Test Report
+        uses: actions/upload-artifact@v3
+        if: success() || failure()
+        with:
+          name: SpringBoot Report
+          path: target/site/serenity/
+        
