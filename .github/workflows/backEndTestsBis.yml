@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build with Maven
-        working-directory: ./back
+        working-directory: back
         run: mvn -B package --file pom.xml
 
   test-backend:
