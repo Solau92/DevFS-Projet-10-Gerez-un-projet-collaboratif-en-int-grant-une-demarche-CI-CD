@@ -30,6 +30,6 @@ jobs:
       with:
           context: ./back
           push: true
-          #tags: user/app:latest
+          tags: user/app:latest
       
     
