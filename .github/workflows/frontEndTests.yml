@@ -26,9 +26,9 @@ jobs:
         working-directory: ./front
         run: npm run test:ci
 
-      - name: Generate test coverage report
-        working-directory: ./front
-        run: npm test --coverage
+      #- name: Generate test coverage report
+        # working-directory: ./front
+        # run: npm test --coverage
         
       - name: Get Jasmine test coverage report
         uses: actions/upload-artifact@v4
