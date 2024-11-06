@@ -1,0 +1,42 @@
+on:
+  push:
+    branches: actions-tests
+
+jobs:
+
+  build-and-test-frontend:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+
+      - name: Install packages 
+        working-directory: ./front
+        run: npm ci
+
+      - name: Test frontend
+        working-directory: ./front
+        run: npm run test:ci
+
+      - name: Generate test coverage report
+        working-directory: ./front
+        run: npm test --coverage
+        
+      - name: Get Jasmine test coverage report
+        uses: actions/upload-artifact@v4
+        if: success() || failure()
+        with:
+          name: Jasmine Report
+          path: ./front
+          
+      - name: Build
+        working-directory: ./front
+        run: npm run build

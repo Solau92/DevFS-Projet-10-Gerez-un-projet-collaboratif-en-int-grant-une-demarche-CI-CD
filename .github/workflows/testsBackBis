@@ -1,0 +1,32 @@
+on:
+  push:
+    branches: actions-tests
+
+jobs:
+
+  build :
+      - name: Build with Maven
+        working-directory: ./back
+        run: mvn -B package --file pom.xml
+
+  test-backend:
+  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+          cache: maven
+    
+      - name: test backend
+        working-directory: ./back
+        run: mvn clean test
+
+      - name: Generate JaCoCo test coverage report
+        working-directory: ./back
+        run: mvn jacoco:report
