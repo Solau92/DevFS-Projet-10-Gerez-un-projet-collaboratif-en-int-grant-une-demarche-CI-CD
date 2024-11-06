@@ -24,7 +24,7 @@ jobs:
 
       - name: Test frontend
         working-directory: ./front
-        run: npm test --no-watch --no-progress --browsers=ChromeHeadless
+        run: npm run test:ci
 
       - name: Generate test coverage report
         working-directory: ./front
