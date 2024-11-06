@@ -10,7 +10,7 @@ import com.openclassrooms.bobapp.service.JokeService;
 @RestController
 @RequestMapping("api/joke")
 public class JokeController {
-
+ 
     private final JokeService jokeService;
 
     JokeController(JokeService jokeService) {
@@ -21,5 +21,5 @@ public class JokeController {
     public ResponseEntity<?> getRandomJokes() {
         return ResponseEntity.ok(this.jokeService.getRandomJoke());
     }
-    
+
 }
