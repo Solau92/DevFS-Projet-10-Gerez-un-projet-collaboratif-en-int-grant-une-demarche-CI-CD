@@ -22,7 +22,7 @@ jobs:
         working-directory: ./front
         run: npm ci
 
-      - name: Test frontend
+      - name: Test frontend and coverage
         working-directory: ./front
         run: npm run test:ci
 
