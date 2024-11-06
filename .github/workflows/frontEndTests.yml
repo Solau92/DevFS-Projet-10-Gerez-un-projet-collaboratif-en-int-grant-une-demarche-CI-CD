@@ -36,4 +36,7 @@ jobs:
         with:
           name: Jasmine Report
           path: ./front
-        
+          
+      - name: Build
+        working-directory: ./front
+        run: npm run build
