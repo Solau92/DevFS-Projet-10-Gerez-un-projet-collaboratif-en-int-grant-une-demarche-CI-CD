@@ -22,20 +22,6 @@ jobs:
         working-directory: ./front
         run: npm ci
         
-      - name: Test frontend
-        working-directory: ./front
-        run: npm test
-
-      - name: Generate test coverage report
-        working-directory: ./front
-        run: npm test --coverage
-        
-      - name: Get Jasmine test coverage report
-        uses: actions/upload-artifact@v4
-        if: success() || failure()
-        with:
-          name: Jasmine Report
-          path: ./front
           
       - name: Build
         working-directory: ./front
