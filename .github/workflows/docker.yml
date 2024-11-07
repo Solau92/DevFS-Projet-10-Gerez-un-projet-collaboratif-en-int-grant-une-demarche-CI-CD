@@ -30,6 +30,6 @@ jobs:
       with:
           context: ./back
           push: true
-          tags: solau/projet10
+          tags: solau92/projet10
       
     
