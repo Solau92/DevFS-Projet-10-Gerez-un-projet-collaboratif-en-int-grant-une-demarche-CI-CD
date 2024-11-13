@@ -21,9 +21,9 @@ jobs:
           java-version: '11'
           cache: maven
     
-      - name: Build with Maven
-        working-directory: ./back
-        run: mvn -B package --file pom.xml
+      # - name: Build with Maven
+      #   working-directory: ./back
+      #   run: mvn -B package --file pom.xml
 
       - name: Test backend
         working-directory: ./back
@@ -39,3 +39,7 @@ jobs:
         with:
           name: SpringBoot Report
           path: ./back/target/site/jacoco/
+
+      - name: Build with Maven
+        working-directory: ./back
+        run: mvn -B package --file pom.xml

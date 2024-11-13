@@ -10,7 +10,13 @@ jobs:
   call-worklow-frontend-tests:
     uses: ./.github/workflows/frontEndTests.yml
   
+  # call-workflow-sonarqube:
+  #   uses: ./.github/workflows/sonarQube.yml
+  #   secrets: inherit
+
   call-worklow-docker:
     needs: [call-worklow-backend-tests, call-worklow-frontend-tests]
     uses: ./.github/workflows/docker.yml
     secrets: inherit
+
+
