@@ -12,9 +12,9 @@ class BobappApplicationTests {
 	void contextLoads() {
 	}
 
-/* 	@Test
+	@Test
 	void testFailed() {
 		fail("test KO");
-	} */
+	}
 
 }
