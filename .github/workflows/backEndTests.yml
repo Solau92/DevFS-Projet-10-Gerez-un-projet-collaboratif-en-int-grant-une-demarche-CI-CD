@@ -1,6 +1,7 @@
 on:
-  push:
-    branches: actions-tests
+  workflow_call:
+  #push:
+    #branches: actions-tests
 
 jobs:
 
