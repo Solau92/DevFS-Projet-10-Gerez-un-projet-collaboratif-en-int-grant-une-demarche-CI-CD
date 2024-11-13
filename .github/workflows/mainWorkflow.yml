@@ -3,8 +3,13 @@ on:
     branches: actions-tests
 
 jobs: 
+
   call-worklow-backend-tests:
     uses: ./.github/workflows/backEndTests.yml
+
   call-worklow-frontend-tests:
     uses: ./.github/workflows/frontEndTests.yml
-    
+  
+  call-worklow-docker:
+    needs: call-worklow-backend-tests
+    uses: ./.github/workflows/docker.yml
