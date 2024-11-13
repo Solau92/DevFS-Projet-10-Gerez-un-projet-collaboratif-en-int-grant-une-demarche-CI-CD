@@ -13,3 +13,4 @@ jobs:
   call-worklow-docker:
     needs: call-worklow-backend-tests
     uses: ./.github/workflows/docker.yml
+    secrets: inherit
