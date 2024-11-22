@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: SpringBoot Surefire Report
+          name: Surefire Report
           path: ./back/target/surefire-reports
         
       - name: Generate JaCoCo test coverage report
