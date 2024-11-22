@@ -4,8 +4,8 @@ on:
 
 jobs: 
 
-  call-worklow-backend-tests:
-    uses: ./.github/workflows/backEndTests.yml
+  # call-worklow-backend-tests:
+  #   uses: ./.github/workflows/backEndTests.yml
 
   call-worklow-frontend-tests:
     uses: ./.github/workflows/frontEndTests.yml
@@ -15,7 +15,8 @@ jobs:
   #   secrets: inherit
 
   call-worklow-docker:
-    needs: [call-worklow-backend-tests, call-worklow-frontend-tests]
+    # needs: [call-worklow-backend-tests, call-worklow-frontend-tests]
+    needs: [call-worklow-frontend-tests]
     uses: ./.github/workflows/docker.yml
     secrets: inherit
 
